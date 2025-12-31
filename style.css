@@ -17,8 +17,8 @@ p { font-size: 1rem; margin-bottom: 15px;}
 .hero-content p { font-size: 1.25rem; margin: 20px 0;}
 .btn-primary { background: #4B9CD3; color: #fff; padding: 12px 25px; border-radius: 25px; font-weight: 600; transition: 0.3s;}
 .btn-primary:hover { background: #3A84C2;}
-.hero-image { flex: 1 1 600px; text-align: center;}
-.hero-image img { width: 600px; border-radius: 50%; border: 1px solid #C0C6CC;}
+.hero-image { flex: 1 1 800px; text-align: center;}
+.hero-image img { width: 800px; border-radius: 50%; border: 1px solid #C0C6CC;}
 /* Hero Image – Background Overlap */
 .hero-image-bg { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); z-index: 1; pointer-events: none; max-width: 45%;}
 
