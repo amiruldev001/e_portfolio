@@ -10,7 +10,8 @@ p { font-size: 1rem; margin-bottom: 15px;}
 
 /* Hero Section */
 #hero { display: flex; justify-content: space-between; align-items: center; min-height: 100vh; background: #1B2A49; color: #C0C6CC; padding: 0 50px; flex-wrap: wrap; position: relative;}
-.hero-content { flex: 1 1 400px; text-align: left;}
+/*.hero-content { flex: 1 1 400px; text-align: left;}*/
+.hero-content { position: relatives; z-index:2}
 .hero-content h1 { font-size: 3rem; color: #C0C6CC;}
 .hero-content h1 span { color: #4B9CD3;}
 .hero-content p { font-size: 1.25rem; margin: 20px 0;}
@@ -18,6 +19,10 @@ p { font-size: 1rem; margin-bottom: 15px;}
 .btn-primary:hover { background: #3A84C2;}
 .hero-image { flex: 1 1 600px; text-align: center;}
 .hero-image img { width: 600px; border-radius: 50%; border: 1px solid #C0C6CC;}
+/* Hero Image – Background Overlap */
+.hero-image-bg { position: absolute; right: -80px; bottom: 0;z-index: 1; pointer-events: none;}
+
+.hero-image-bg img { width: 520px; opacity: 0.4; border-radius: 50%; filter: grayscale(20%);}
 
 /* Skills Radar Canvas */
 #skillsRadar { position: absolute; bottom: 20px; right: 20px; }
@@ -57,5 +62,10 @@ footer { text-align: center; padding: 20px; background: #2F3E46; color: #C0C6CC;
     #hero { padding: 40px 20px; flex-direction: column-reverse; text-align: center;}
     .hero-content h1 { font-size: 2.2rem;}
     .hero-content p { font-size: 1rem;}
-    #about .about-details { flex-direction: column; align-items: center;}
+    #about .about-details { flex-direction: column; align-items: center;
+    .hero-image-bg {
+    position: relative; right: 0; margin-top: 30px; text-align: center;
+  }
+  .hero-image-bg img { width: 260px; opacity: 0.35;
+  }}
 }
