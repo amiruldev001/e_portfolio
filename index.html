@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amirul Shah | Software Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amirul Shah | Software Engineer</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Hero Section -->
@@ -18,6 +18,8 @@
         <div class="hero-image">
             <img src="assets/profile.jpg" alt="Amirul Shah">
         </div>
+        <!-- Interactive Skills Radar -->
+        <canvas id="skillsRadar" width="300" height="300"></canvas>
     </header>
 
     <!-- About Section -->
@@ -48,7 +50,7 @@
     <!-- Experience Section -->
     <section id="experience" class="fade-in">
         <h2>Professional Experience</h2>
-        <div class="timeline">
+        <div class="timeline" id="timeline">
             <div class="timeline-item">
                 <h3>Senior Software Engineer | ABC Tech</h3>
                 <span>2023 - Present</span>
@@ -99,6 +101,7 @@
         <p>&copy; 2025 Amirul Shah. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
+<script src="skillsRadar.js"></script>
 </body>
 </html>
