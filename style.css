@@ -22,7 +22,7 @@ p { font-size: 1rem; margin-bottom: 15px;}
 /* Hero Image – Background Overlap */
 .hero-image-bg { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); z-index: 1; pointer-events: none; max-width: 45%;}
 
-.hero-image-bg img { width: 100%;max-width: 420px; aspect-ratio: 1 / 1; object-fit: cover; opacity: 0.4; border-radius: 50%; filter: grayscale(20%);}
+.hero-image-bg img { width: 100%;max-width: 520px; aspect-ratio: 1 / 1; object-fit: cover; opacity: 0.4; border-radius: 50%; filter: grayscale(20%);}
 
 /* Skills Radar Canvas */
 #skillsRadar { position: absolute; bottom: 20px; right: 20px; }
