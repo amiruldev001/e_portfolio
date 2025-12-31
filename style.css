@@ -20,9 +20,9 @@ p { font-size: 1rem; margin-bottom: 15px;}
 .hero-image { flex: 1 1 600px; text-align: center;}
 .hero-image img { width: 600px; border-radius: 50%; border: 1px solid #C0C6CC;}
 /* Hero Image – Background Overlap */
-.hero-image-bg { position: absolute; right: -80px; bottom: 0;z-index: 1; pointer-events: none;}
+.hero-image-bg { position: absolute; flex: 1 1 600px; bottom: 0;z-index: 1; pointer-events: none;}
 
-.hero-image-bg img { width: 520px; opacity: 0.4; border-radius: 50%; filter: grayscale(20%);}
+.hero-image-bg img { width: 520px; opacity: 0.2; border-radius: 50%; filter: grayscale(20%);}
 
 /* Skills Radar Canvas */
 #skillsRadar { position: absolute; bottom: 20px; right: 20px; }
