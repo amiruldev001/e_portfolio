@@ -16,7 +16,7 @@ a {
 }
 
 section {
-    padding: 80px 20px;
+    padding: 60px 20px;
 }
 
 h2 {
@@ -39,6 +39,12 @@ p {
     background: linear-gradient(135deg,#4facfe,#00f2fe);
     color: white;
     padding: 0 50px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1 1 400px;
+    animation: fadeInUp 1.2s ease forwards;
 }
 
 .hero-content h1 {
@@ -68,10 +74,16 @@ p {
     color: #333;
 }
 
+.hero-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
 .hero-image img {
-    width: 300px;
+    width: 250px;
     border-radius: 50%;
     border: 5px solid white;
+    animation: fadeIn 2s ease forwards;
 }
 
 /* About Section */
@@ -171,4 +183,37 @@ footer {
     padding: 20px;
     background: #222;
     color: white;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #hero {
+        padding: 40px 20px;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    #about .about-details {
+        flex-direction: column;
+        align-items: center;
+    }
 }
