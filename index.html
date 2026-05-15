@@ -4,67 +4,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Profile | Muhammad Amirul Shah</title>
-    <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    
+    <style>
+        /* CSS VARIABLES - The Corporate IT Palette */
+        :root {
+            --primary-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --navy: #0a2540;
+            --accent-red: #d32f2f;
+            --whatsapp-green: #25D366;
+            --text-main: #1a1a1a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+ 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+ 
+        /* NAVBAR */
+        .navbar {
+            background: var(--navy);
+            color: white;
+            padding: 16px 0;
+            border-bottom: 4px solid var(--accent-red);
+        }
+ 
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+ 
+        .brand {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.1rem;
+        }
+ 
+        .brand span {
+            font-weight: 300;
+            opacity: 0.7;
+        }
+ 
+        .status-tag {
+            font-size: 10px;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+ 
+        /* PROFILE CARD */
+        .profile-card {
+            background: var(--card-bg);
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border);
+        }
+ 
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+ 
+        .profile-img img {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px; /* IT Professional Square-round */
+            object-fit: cover;
+            border: 4px solid var(--border);
+        }
+ 
+        .profile-info h1 {
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+ 
+        .job-title {
+            font-weight: 700;
+            color: var(--accent-red);
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+ 
+        .company-name {
+            font-size: 15px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+ 
+        .divider {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+ 
+        /* CONTACT GRID */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+ 
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+        }
+ 
+        .full-width {
+            grid-column: span 2;
+        }
+ 
+        .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+ 
+        .value {
+            font-size: 15px;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+        }
+ 
+        /* BUTTONS */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+ 
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            flex: 1;
+            text-align: center;
+        }
+ 
+        .btn-primary { background: var(--navy); color: white; }
+        .btn-secondary { background: var(--border); color: var(--navy); }
+ 
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+ 
+        /* MODAL SYSTEM */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 37, 64, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+ 
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            text-align: center;
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+ 
+        @keyframes modalPop {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+ 
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+ 
+        .qr-wrapper {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid var(--border);
+            display: inline-block;
+            background: white;
+        }
+ 
+        .qr-wrapper img {
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+ 
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--whatsapp-green);
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 20px;
+            gap: 10px;
+        }
+ 
+        footer {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+ 
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .profile-header { flex-direction: column; text-align: center; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .action-buttons { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
-
+ 
     <header class="navbar">
         <div class="container">
             <div class="brand">PERODUA<span> MANUFACTURING</span></div>
-            <div class="status-tag">Corporate IT Portal</div>
+            <div class="status-tag">Corporate ID</div>
         </div>
     </header>
-
+ 
     <main class="container">
         <section class="profile-card">
             <div class="profile-header">
                 <div class="profile-img">
-                    <img src="./assets/profile.jpg" alt="Muhammad Amirul Shah">
+                    <img src="144106.jpg" alt="Muhammad Amirul Shah">
                 </div>
                 <div class="profile-info">
+                    <p class="job-title">CSQ | EXECUTIVE</p>
                     <h1>MUHAMMAD AMIRUL SHAH BIN NORDIN</h1>
-                    <p class="title">CSQ | EXECUTIVE</p>
-                    <p class="company">Perodua Manufacturing Sdn Bhd</p>
+                    <p class="company-name">Perodua Manufacturing Sdn Bhd</p>
                 </div>
             </div>
-
+ 
             <hr class="divider">
-
+ 
             <div class="contact-grid">
                 <div class="contact-item">
-                    <span class="label">Email</span>
+                    <span class="label">Email Address</span>
                     <a href="mailto:amirul.nordin@perodua.com.my" class="value">amirul.nordin@perodua.com.my</a>
                 </div>
                 <div class="contact-item">
-                    <span class="label">Mobile</span>
-                    <a href="tel:+6011-287 57244" class="value">+6011-287 57244</a>
+                    <span class="label">Mobile Number</span>
+                    <a href="tel:+60109889019" class="value">+6011-287 57244</a>
                 </div>
                 <div class="contact-item">
-                    <span class="label">Office</span>
+                    <span class="label">Office Line</span>
                     <span class="value">+603-6092 8888</span>
                 </div>
                 <div class="contact-item">
-                    <span class="label">Website</span>
+                    <span class="label">Corporate Web</span>
                     <a href="https://www.perodua.com.my" target="_blank" class="value">www.perodua.com.my</a>
                 </div>
                 <div class="contact-item full-width">
-                    <span class="label">Location</span>
+                    <span class="label">Headquarters</span>
                     <span class="value">Lot 1896, Locked Bag No. 226, Jalan Sungai Choh Mukim Serendah, 48009 Rawang, Selangor</span>
                 </div>
             </div>
-
+ 
             <div class="action-buttons">
-                <button class="btn btn-primary">SAVE V-CARD</button>
-                <button class="btn btn-secondary">SHARE PROFILE</button>
+                <button class="btn btn-primary" onclick="window.print()">PRINT CARD</button>
+                <button class="btn btn-secondary" onclick="openModal()">SHARE PROFILE</button>
             </div>
         </section>
     </main>
-
-    <footer class="container">
-        <p>&copy; 2026 Perodua. Internal Corporate Directory.</p>
+ 
+    <div id="shareModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 style="font-size: 18px; color: var(--navy);">SHARE PROFILE</h2>
+            <p style="font-size: 13px; color: var(--text-muted);">Scan QR code to access digital contact</p>
+            
+            <div class="qr-wrapper">
+                <img id="qrCodeImg" src="" alt="QR Code">
+            </div>
+ 
+            <a id="whatsappLink" href="#" target="_blank" class="whatsapp-btn">
+                SEND VIA WHATSAPP
+            </a>
+        </div>
+    </div>
+ 
+    <footer>
+        <p>&copy; 2026 Perodua Manufacturing Sdn Bhd. All Rights Reserved.</p>
     </footer>
-
+ 
+    <script>
+        // Use the current page URL for the QR code and WhatsApp link
+        const currentUrl = window.location.href;
+        const encodedUrl = encodeURIComponent(currentUrl);
+        
+        // Modal logic
+        const modal = document.getElementById('shareModal');
+        const qrImg = document.getElementById('qrCodeImg');
+        const waLink = document.getElementById('whatsappLink');
+ 
+        function openModal() {
+            // Set QR code source
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodedUrl}`;
+            
+            // Set WhatsApp link
+            waLink.href = `https://wa.me/?text=Contact%20Profile%20for%20Muhammad%20Amirul%20Shah:%20${encodedUrl}`;
+            
+            modal.style.display = 'flex';
+        }
+ 
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+ 
+        // Close when clicking outside the box
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
+ 
