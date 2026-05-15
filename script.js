@@ -1,29 +1,21 @@
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = "translateY(0)";
-        appearOnScroll.unobserve(entry.target);
-    });
-}, appearOptions);
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('shareModal');
+    const shareBtn = document.getElementById('shareBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const qrImg = document.getElementById('qrCodeImg');
+    const waLink = document.getElementById('whatsappLink');
+ 
+    const currentUrl = window.location.href;
+ 
+    shareBtn.onclick = () => {
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}`;
+        waLink.href = `https://wa.me/?text=Corporate Profile: ${encodeURIComponent(currentUrl)}`;
+        modal.style.display = 'flex';
+    };
+ 
+    closeBtn.onclick = () => modal.style.display = 'none';
+ 
+    window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+    };
 });
