@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Corporate Directory | M. Amirul Shah</title>
+    <title>Corporate Profile | Muhammad Amirul Shah</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,14 +14,14 @@
         <header class="navbar">
             <div class="container">
                 <div class="brand">PERODUA<span> MANUFACTURING</span></div>
-                <div class="status-tag">Internal System</div>
+                <div class="status-tag">Corporate IT Portal</div>
             </div>
         </header>
  
         <main class="main-content">
             <div class="profile-card">
                 <div class="profile-header">
-                    <img src="./assets/profile.jpg" alt="Profile" class="profile-img">
+                    <img src="144106.jpg" alt="Muhammad Amirul Shah" class="profile-img">
                     <div class="profile-text">
                         <span class="badge">CSQ | EXECUTIVE</span>
                         <h1>MUHAMMAD AMIRUL SHAH</h1>
@@ -34,8 +35,8 @@
                         <a href="mailto:amirul.nordin@perodua.com.my">amirul.nordin@perodua.com.my</a>
                     </div>
                     <div class="info-item">
-                        <label>Mobile</label>
-                        <a href="tel:+601128757244">+6011-287 57244</a>
+                        <label>Mobile Number</label>
+                        <a href="tel:+60109889019">+6010-988 9019</a>
                     </div>
                     <div class="info-item">
                         <label>Office Line</label>
@@ -43,33 +44,43 @@
                     </div>
                     <div class="info-item">
                         <label>Domain</label>
-                        <a href="https://www.perodua.com.my">perodua.com.my</a>
+                        <a href="https://www.perodua.com.my" target="_blank">perodua.com.my</a>
                     </div>
                     <div class="info-item full">
                         <label>Stationed At</label>
-                        <span>Rawang, Selangor, Malaysia</span>
+                        <span>Lot 1896, Serendah, 48009 Rawang, Selangor</span>
                     </div>
                 </div>
  
                 <div class="actions">
-                    <button class="btn btn-print" onclick="window.print()">PRINT RECORD</button>
+                    <button class="btn btn-print" onclick="window.print()">PRINT CARD</button>
                     <button class="btn btn-share" id="shareBtn">SHARE PROFILE</button>
                 </div>
             </div>
         </main>
  
         <footer class="mini-footer">
-            <p>&copy; 2026 Perodua Corporate Directory</p>
+            <p>&copy; 2026 Perodua Manufacturing Sdn Bhd. Internal Directory.</p>
         </footer>
     </div>
  
     <div id="shareModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" id="closeBtn">&times;</span>
+            
             <div class="qr-box">
                 <img id="qrCodeImg" src="" alt="QR Code">
+                <p class="modal-subtitle">Scan to view digital profile</p>
             </div>
-            <a id="whatsappLink" href="#" target="_blank" class="wa-btn">WhatsApp Share</a>
+ 
+            <div class="direct-wa-section">
+                <label class="input-label">Send to WhatsApp (Unsaved Number)</label>
+                <div class="input-group">
+                    <input type="tel" id="targetNumber" placeholder="e.g. 60123456789" class="wa-input">
+                    <button id="sendWaBtn" class="btn btn-wa">SEND</button>
+                </div>
+                <small class="helper-text">Include country code (e.g. 60 for MY)</small>
+            </div>
         </div>
     </div>
  
