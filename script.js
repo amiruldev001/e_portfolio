@@ -1,46 +1,89 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('shareModal');
-    const shareBtn = document.getElementById('shareBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const qrImg = document.getElementById('qrCodeImg');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Corporate Profile | Muhammad Amirul Shah</title>
     
-    const targetNumberInput = document.getElementById('targetNumber');
-    const sendWaBtn = document.getElementById('sendWaBtn');
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
  
-    // Automatically detect the current URL for the QR code
-    const currentUrl = window.location.href;
+    <div class="viewport-wrapper">
+        <header class="navbar">
+            <div class="container">
+                <div class="brand">PERODUA<span> MANUFACTURING</span></div>
+                <div class="status-tag">Corporate IT Portal</div>
+            </div>
+        </header>
  
-    // Show Modal
-    shareBtn.addEventListener('click', () => {
-        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}`;
-        modal.style.display = 'flex';
-    });
+        <main class="main-content">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="144106.jpg" alt="Muhammad Amirul Shah" class="profile-img">
+                    <div class="profile-text">
+                        <span class="badge">CSQ | EXECUTIVE</span>
+                        <h1>MUHAMMAD AMIRUL SHAH</h1>
+                        <p class="sub">Perodua Manufacturing Sdn Bhd</p>
+                    </div>
+                </div>
  
-    // Hide Modal
-    const hideModal = () => {
-        modal.style.display = 'none';
-        targetNumberInput.value = '';
-    };
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Direct Email</label>
+                        <a href="mailto:amirul.nordin@perodua.com.my">amirul.nordin@perodua.com.my</a>
+                    </div>
+                    <div class="info-item">
+                        <label>Mobile Number</label>
+                        <a href="tel:+60109889019">+6010-988 9019</a>
+                    </div>
+                    <div class="info-item">
+                        <label>Office Line</label>
+                        <span>+603-6092 8888</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Domain</label>
+                        <a href="https://www.perodua.com.my" target="_blank">perodua.com.my</a>
+                    </div>
+                    <div class="info-item full">
+                        <label>Stationed At</label>
+                        <span>Lot 1896, Serendah, 48009 Rawang, Selangor</span>
+                    </div>
+                </div>
  
-    closeBtn.addEventListener('click', hideModal);
+                <div class="actions">
+                    <button class="btn btn-print" onclick="window.print()">PRINT CARD</button>
+                    <button class="btn btn-share" id="shareBtn">SHARE PROFILE</button>
+                </div>
+            </div>
+        </main>
  
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) hideModal();
-    });
+        <footer class="mini-footer">
+            <p>&copy; 2026 Perodua Manufacturing Sdn Bhd. Internal Directory.</p>
+        </footer>
+    </div>
  
-    // Send WhatsApp Logic
-    sendWaBtn.addEventListener('click', () => {
-        // Strip out everything except numbers
-        const cleanNumber = targetNumberInput.value.replace(/\D/g, '');
-        
-        if (!cleanNumber || cleanNumber.length < 10) {
-            alert("Please enter a valid phone number including country code (e.g. 60123456789)");
-            return;
-        }
+    <div id="shareModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            
+            <div class="qr-box">
+                <img id="qrCodeImg" src="" alt="QR Code">
+                <p class="modal-subtitle">Scan to view digital profile</p>
+            </div>
  
-        const message = encodeURIComponent(`View the corporate profile for Muhammad Amirul Shah: ${currentUrl}`);
-        
-        // This protocol triggers WhatsApp web or app even for unsaved contacts
-        window.open(`https://wa.me/${cleanNumber}?text=${message}`, '_blank');
-    });
-});
+            <div class="direct-wa-section">
+                <label class="input-label">Send to WhatsApp (Unsaved Number)</label>
+                <div class="input-group">
+                    <input type="tel" id="targetNumber" placeholder="e.g. 60123456789" class="wa-input">
+                    <button id="sendWaBtn" class="btn btn-wa">SEND</button>
+                </div>
+                <small class="helper-text">Include country code (e.g. 60 for MY)</small>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
