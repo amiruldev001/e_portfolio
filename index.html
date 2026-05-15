@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Corporate Profile | Muhammad Amirul Shah</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,7 +20,7 @@
         <main class="main-content">
             <div class="profile-card">
                 <div class="profile-header">
-                    <img src="144106.jpg" alt="Muhammad Amirul Shah" class="profile-img">
+                    <img src="./assets/profile.jpg" alt="Muhammad Amirul Shah" class="profile-img">
                     <div class="profile-text">
                         <span class="badge">CSQ | EXECUTIVE</span>
                         <h1>MUHAMMAD AMIRUL SHAH</h1>
@@ -53,7 +52,7 @@
                 </div>
  
                 <div class="actions">
-                    <button class="btn btn-print" onclick="window.print()">PRINT CARD</button>
+                    <button class="btn btn-save" id="saveContactBtn">SAVE CONTACT</button>
                     <button class="btn btn-share" id="shareBtn">SHARE PROFILE</button>
                 </div>
             </div>
@@ -67,16 +66,14 @@
     <div id="shareModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" id="closeBtn">&times;</span>
-            
             <div class="qr-box">
                 <img id="qrCodeImg" src="" alt="QR Code">
                 <p class="modal-subtitle">Scan to view digital profile</p>
             </div>
- 
             <div class="direct-wa-section">
                 <label class="input-label">Send to WhatsApp (Unsaved Number)</label>
                 <div class="input-group">
-                    <input type="tel" id="targetNumber" placeholder="e.g. 60123456789" class="wa-input">
+                    <input type="tel" id="targetNumber" text="60" placeholder="60123456789" class="wa-input">
                     <button id="sendWaBtn" class="btn btn-wa">SEND</button>
                 </div>
                 <small class="helper-text">Include country code (e.g. 60 for MY)</small>
